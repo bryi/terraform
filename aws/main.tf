@@ -5,22 +5,12 @@ provider "aws" {
 }
 
 resource "aws_instance" "my-test-1" {
+  count = 3
   ami           = "ami-0915bcb5fa77e4892"
   instance_type = "t2.micro"
 
   tags = {
     Name    = "My first"
-    Project = "Terraform Lessons"
-  }
-}
-
-resource "aws_instance" "my_Amazon" {
-  ami           = "ami-0915bcb5fa77e4892"
-  instance_type = "t2.micro"
-
-  tags = {
-    Name    = "My Amazon Server"
-    Owner   = "Denis Astahov"
     Project = "Terraform Lessons"
   }
 }
