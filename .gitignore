@@ -4,3 +4,4 @@ vault.key
 .terraform/
 *.tfstate
 *.tfstate.backup
+.git/
