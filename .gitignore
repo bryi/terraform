@@ -1,3 +1,6 @@
 *.retry
 jdauphant.nginx
 vault.key
+.terraform/
+*.tfstate
+*.tfstate.backup
