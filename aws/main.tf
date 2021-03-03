@@ -2,17 +2,18 @@ provider "aws" {
   region = "us-east-1"
 }
 
-resource "aws_eip" "my_static_ip" {
-  instance = aws_instance.my_webserver.id
-  tags = {
-    Name  = "Web Server IP"
-    Owner = "Alexey Bryi"
+data "aws_ami" "latest_amazon_linux" {
+  owners      = ["amazon"]
+  most_recent = true
+  filter {
+    name   = "name"
+    values = ["amzn2-ami-hvm-*-x86_64-gp2"]
   }
 }
 
 
 resource "aws_instance" "my_webserver" {
-  ami                    = "ami-0915bcb5fa77e4892"
+  ami                    = data.aws_ami.latest_amazon_linux.id
   instance_type          = "t2.micro"
   key_name               = "saz-key"
   vpc_security_group_ids = [aws_security_group.my_webserver.id]
@@ -31,3 +32,4 @@ resource "aws_instance" "my_webserver" {
     create_before_destroy = true
   }
 }
+

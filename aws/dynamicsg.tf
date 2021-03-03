@@ -1,5 +1,5 @@
 resource "aws_security_group" "my_webserver" {
-  name = "Dynamic Security Group"
+  name = "Dynamic Security Group 2"
 
   dynamic "ingress" {
     for_each = ["80", "443"]
