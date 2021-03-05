@@ -6,3 +6,4 @@ vault.key
 *.tfstate.backup
 *.tfstate.*
 .git/
+.terraform.lock.hcl
