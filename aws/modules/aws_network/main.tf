@@ -93,4 +93,27 @@ resource "aws_route_table_association" "private_routes" {
   subnet_id      = element(aws_subnet.private_subnets[*].id, count.index)
 }
 
-#==============================================================
+#==================== DB_SUBNET =============================
+
+resource "aws_subnet" "db_subnets" {
+  count             = length(var.db_subnet_cidrs)
+  vpc_id            = aws_vpc.main.id
+  cidr_block        = element(var.db_subnet_cidrs, count.index)
+  availability_zone = data.aws_availability_zones.available.names[count.index]
+  tags = {
+    Name = "${var.env}-db-${count.index + 1}"
+  }
+}
+
+resource "aws_route_table" "db_subnets" {
+  vpc_id = aws_vpc.main.id
+  tags = {
+    Name = "${var.env}-route-db-subnet"
+  }
+}
+
+resource "aws_route_table_association" "db_routes" {
+  count          = length(aws_subnet.db_subnets[*].id)
+  route_table_id = aws_route_table.db_subnets.id
+  subnet_id      = element(aws_subnet.db_subnets[*].id, count.index)
+}
