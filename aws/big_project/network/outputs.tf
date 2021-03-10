@@ -1,3 +1,6 @@
+output "vpc_id" {
+  value = module.vpc-prod.vpc_id
+}
 
 output "prod_vpc_cidr" {
   value = module.vpc-prod.vpc_cidr

@@ -1,5 +1,6 @@
 resource "aws_security_group" "security_group" {
   name = "Dynamic Security Group - ${var.resource_name}"
+  vpc_id      = var.vpc_id
 
   dynamic "ingress" {
     for_each = var.port_list

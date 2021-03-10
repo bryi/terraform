@@ -1,8 +1,19 @@
 #!/bin/bash
 
-#network
-cd network
+#порядок ресурсов обратен порядку в скрипте деплоя
+
+#bastion
+cd bastion
 terraform destroy
+
+#security_groups
+cd ../security_groups
+terraform destroy
+
+#network
+cd ../network
+terraform destroy
+
 
 
 
