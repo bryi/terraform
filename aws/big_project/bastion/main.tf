@@ -51,3 +51,4 @@ resource "aws_instance" "bastion_instance" {
     Name = "Bastion_Server"
   }
 }
+

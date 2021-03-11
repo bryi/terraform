@@ -13,7 +13,7 @@ resource "aws_launch_configuration" "web" {
   image_id        = data.aws_ami.latest_amazon_linux.id
   instance_type   = var.instance_type
   key_name        = var.key_name
-  security_groups = [var.security_groups_id]
+  security_groups = var.security_groups_id
   user_data       = var.user_data
 
   lifecycle {
@@ -43,5 +43,6 @@ resource "aws_autoscaling_group" "web" {
 
   lifecycle {
     create_before_destroy = true
+    ignore_changes = [ name ]
   }
 }

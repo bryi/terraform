@@ -38,4 +38,11 @@ sed -i 's|DEFAULT_NAME|'"$bucket_name"'|' main.tf
 terraform init
 terraform apply -auto-approve
 
+#alb
+cd ../alb
+sed -i 's|DEFAULT_NAME|'"$bucket_name"'|' main.tf
+terraform init
+terraform apply -auto-approve
+
+
 cd ..

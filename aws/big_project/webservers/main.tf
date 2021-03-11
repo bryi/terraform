@@ -36,7 +36,11 @@ module "asg_instance" {
   source = "../../modules/asg_instance"
   instance_type = "t2.micro"
   key_name = "saz-key"
-  security_groups_id = data.terraform_remote_state.security_groups.outputs.SERVERS_SG_ID
+  security_groups_id = [
+    data.terraform_remote_state.security_groups.outputs.SERVERS_SG_ID, 
+    data.terraform_remote_state.security_groups.outputs.ELB_SERVERS_SG_ID, 
+    data.terraform_remote_state.security_groups.outputs.SERVERS_DB_SG_ID
+    ]
   user_data = file("./user_data.sh")
   min_size = 1
   max_size = 2
