@@ -27,10 +27,10 @@ terraform init
 terraform apply -auto-approve
 
 #bastion_server
-cd ../bastion
-sed -i 's|DEFAULT_NAME|'"$bucket_name"'|' main.tf
-terraform init
-terraform apply -auto-approve
+#cd ../bastion
+#sed -i 's|DEFAULT_NAME|'"$bucket_name"'|' main.tf
+#terraform init
+#terraform apply -auto-approve
 
 #asg_instances
 cd ../webservers
@@ -45,7 +45,13 @@ terraform init
 terraform apply -auto-approve
 
 #rds
-cd ../rds
+#cd ../rds
+#sed -i 's|DEFAULT_NAME|'"$bucket_name"'|' main.tf
+#terraform init
+#terraform apply -auto-approve
+
+#cloudfront
+cd ../cloudfront
 sed -i 's|DEFAULT_NAME|'"$bucket_name"'|' main.tf
 terraform init
 terraform apply -auto-approve
