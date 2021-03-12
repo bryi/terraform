@@ -31,6 +31,7 @@ module "security_group_elb_server" {
   port_list = ["80", "443"]
   resource_name = "ELB-SERVERS"
   cidr_blocks = "10.0.0.0/16"
+  egress_cidr = "10.0.0.0/16"
   vpc_id = data.terraform_remote_state.network.outputs.vpc_id
 }
 
@@ -54,8 +55,8 @@ module "security_group_servers_db" {
   port_list = ["0"]
   resource_name = "SERVERS-DB"
   cidr_blocks = "10.0.0.0/16"
+  egress_cidr = "10.0.0.0/16"
   vpc_id = data.terraform_remote_state.network.outputs.vpc_id
 }
-
 
 #===============================================

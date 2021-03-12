@@ -2,8 +2,12 @@
 
 #порядок ресурсов обратен порядку в скрипте деплоя
 
+#rds
+cd rds
+terraform destroy -auto-approve
+
 #alb
-cd alb
+cd ../alb
 terraform destroy -auto-approve
 
 #asg_instances
