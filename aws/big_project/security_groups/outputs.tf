@@ -17,3 +17,7 @@ output "BASTION_SG_ID" {
 output "SERVERS_DB_SG_ID" {
   value = module.security_group_servers_db.security_group_id
 }
+
+output "SERVERS_CACHE_SG_ID" {
+  value = module.security_group_servers_cache.security_group_id
+}

@@ -43,6 +43,6 @@ resource "aws_autoscaling_group" "web" {
 
   lifecycle {
     create_before_destroy = true
-    ignore_changes = [ name ]
+    ignore_changes = [ name, target_group_arns, load_balancers ]
   }
 }

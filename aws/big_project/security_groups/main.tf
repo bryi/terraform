@@ -59,4 +59,13 @@ module "security_group_servers_db" {
   vpc_id = data.terraform_remote_state.network.outputs.vpc_id
 }
 
+module "security_group_servers_cache" {
+  source = "../../modules/aws_security_group"
+  port_list = ["0"]
+  resource_name = "SERVERS-CACHE"
+  cidr_blocks = "10.0.0.0/16"
+  egress_cidr = "10.0.0.0/16"
+  vpc_id = data.terraform_remote_state.network.outputs.vpc_id
+}
+
 #===============================================

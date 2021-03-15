@@ -2,8 +2,8 @@
 
 #порядок ресурсов обратен порядку в скрипте деплоя
 
-#cloufront
-cd cloudfront
+#cache
+cd cache
 terraform destroy -auto-approve
 
 #rds
