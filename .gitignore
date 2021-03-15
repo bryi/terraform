@@ -7,3 +7,4 @@ vault.key
 *.tfstate.*
 .git/
 .terraform.lock.hcl
+endpoints.txt

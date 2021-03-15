@@ -70,5 +70,8 @@ module "db_instance" {
     security_groups = [
         data.terraform_remote_state.security_groups.outputs.SERVERS_DB_SG_ID
     ]
+    provisioner "local-exec" {
+      command = "echo ${module.db_instance.db_endpoint} >> ../endpoints.txt"
+    }
 
 }

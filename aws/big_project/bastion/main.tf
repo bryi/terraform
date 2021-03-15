@@ -50,5 +50,8 @@ resource "aws_instance" "bastion_instance" {
   tags = {
     Name = "Bastion_Server"
   }
+  provisioner "local-exec" {
+      command = "echo ${aws_instance.bastion_instance.public_ip} >> ../endpoints.txt"
+    }
 }
 

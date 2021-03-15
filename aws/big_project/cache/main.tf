@@ -38,4 +38,7 @@ module "cache" {
     security_group_ids = [
         data.terraform_remote_state.security_groups.outputs.SERVERS_CACHE_SG_ID
     ]
+    provisioner "local-exec" {
+      command = "echo ${module.cache.cache_endpoint} >> ../endpoints.txt"
+    }
 }
