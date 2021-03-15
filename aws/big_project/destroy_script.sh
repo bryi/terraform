@@ -2,8 +2,12 @@
 
 #порядок ресурсов обратен порядку в скрипте деплоя
 
+#dns
+cd dns
+terraform destroy -auto-approve
+
 #cache
-cd cache
+cd ../cache
 terraform destroy -auto-approve
 
 #rds
@@ -29,10 +33,6 @@ terraform destroy -auto-approve
 #network
 cd ../network
 terraform destroy -auto-approve
-
-
-
-
 
 #bucket
 cd ../s3bucket
