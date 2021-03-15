@@ -6,7 +6,7 @@ variable "region" {
 
 variable "s3_bucket_name" {
   type    = string
-  default = "tfbucketstatebryi"
+  default = "DEFAULT_NAME"
 }
 
 variable "env" {

@@ -5,7 +5,7 @@ provider "aws" {
 data "terraform_remote_state" "network" {
   backend = "s3"
   config = {
-    bucket = "tfbucketstatebryi" // Bucket from where to GET Terraform State
+    bucket = "DEFAULT_NAME" // Bucket from where to GET Terraform State
     key    = "prod/network/terraform.tfstate"             // Object name in the bucket to GET Terraform state
     region = "us-east-1"                                 // Region where bycket created
   }
@@ -13,7 +13,7 @@ data "terraform_remote_state" "network" {
 
 terraform {
   backend "s3" {
-    bucket = "tfbucketstatebryi" // Bucket where to SAVE Terraform State
+    bucket = "DEFAULT_NAME" // Bucket where to SAVE Terraform State
     key    = "prod/security_groups/terraform.tfstate"             // Object name in the bucket to SAVE Terraform State
     region = "us-east-1"                                 // Region where bycket created
   }
